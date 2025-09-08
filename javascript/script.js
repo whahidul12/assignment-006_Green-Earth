@@ -1,3 +1,11 @@
+const load_all_tree_cards = async () => {
+  const res = await fetch(`https://openapi.programming-hero.com/api/plants`);
+  const data = await res.json();
+  console.log(data.plants);
+  display_tree_cards(data.plants);
+}
+
+
 
 const load_categorie_list = async () => {
   const res = await fetch("https://openapi.programming-hero.com/api/categories");
@@ -9,7 +17,7 @@ const display_categorie_list = (categories) => {
   categories.forEach(element => {
     const tree_categories_div = document.createElement("div");
     tree_categories_div.innerHTML = `
-    <button type="button" onClick="load_tree_cards(${element.id})" id="${element.id}" class="btn w-full hover:bg-[#15803D] my-1 border-none rounded-sm bg-white hover:text-white">
+    <button type="button" onClick="load_tree_cards(${element.id})" id="${element.id}" class="py-2 px-3 w-[145px] md:w-full cursor-pointer text-sm md:text-base text-center md:text-left border-2 md:border-none border-[#15803D] bg-[#F0FDF4] hover:bg-[#15803D] hover:text-white my-1 rounded-xl">
     ${element.category_name}</button>
     `
     categorie_list_container.appendChild(tree_categories_div);
@@ -33,15 +41,15 @@ const display_tree_cards = (plants) => {
     tree_card_div.innerHTML = `
         <div class="card max-w-96 mx-auto bg-base-100 shadow-sm col-span-1">
       <figure class="px-4 pt-4">
-        <img src="${element.image}" alt="Shoes"
+        <img src="${element.image}" alt="${element.name}"
           class="aspect-[4/3] object-cover rounded-xl" />
       </figure>
       <div class="card-body p-4">
-        <h2 class="card-title">${element.name}</h2>
-        <p class="line-clamp-2">${element.description}</p>
+        <h2 onClick="plants_detail(${element.id})" class="card-title text-sm font-semibold text-[#1F2937] cursor-pointer inline hover:text-[#15803D] ">${element.name}</h2>
+        <p class="line-clamp-2 text-xs text-[#1F2937]">${element.description}</p>
         <div class="flex justify-between items-center">
           <div class="px-3 py-1 bg-[#DCFCE7] text-[#15803D] rounded-3xl">${element.category}</div>
-          <span><span>$ </span>${element.price}</span>
+          <span class="font-semibold text-sm"><span>৳</span>${element.price}</span>
         </div>
         <div class="card-actions">
           <button class="btn bg-[#15803D] text-white w-full rounded-full">Add to Cart</button>
@@ -53,4 +61,44 @@ const display_tree_cards = (plants) => {
   });
 }
 
+
+const plants_detail = async (id) => {
+  const res = await fetch(`https://openapi.programming-hero.com/api/plant/${id}`);
+  const data = await res.json();
+  load_tree_detail(data.plants);
+}
+
+const load_tree_detail = (detail) => {
+  const tree_detail_container = document.getElementById("tree-detail-container")
+  tree_detail_container.innerHTML = "";
+
+  const div = document.createElement("div");
+  div.innerHTML = `
+      <div class="card bg-base-100">
+        <h2 class="card-title mb-2">${detail.name}</h2>
+        <figure class="">
+          <img src="${detail.image}" alt="${detail.name}" class="aspect-[4/3] object-cover rounded-xl" />
+        </figure>
+        <div class="card-body p-0 mt-4 space-y-1">
+          <div class=""><span class="font-bold">Category:
+            </span>${detail.category}</div>
+          <span><span class="font-bold">Price:
+            </span><span>৳</span>${detail.price}</span>
+          <p class=""><span class="font-bold">Description:
+            </span>${detail.description}</p>
+        </div>
+      </div>
+      <div class="modal-action">
+        <form method="dialog">
+          <!-- if there is a button, it will close the modal -->
+          <button class="btn">Close</button>
+        </form>
+      </div>
+  `
+
+  tree_detail_container.appendChild(div);
+  document.getElementById("tree_modal").showModal();
+}
+
 load_categorie_list();
+// load_all_tree_cards();
