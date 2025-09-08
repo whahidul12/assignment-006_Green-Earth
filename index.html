@@ -74,119 +74,46 @@
   </header>
 
   <main>
-    <section class="max-w-[1650px] mx-auto px-6">
+    <section class="max-w-[1650px] mx-auto px-6 py-8 lg:py-24">
       <div class="grid grid-cols-1 gap-4 bg-slate-500 md:grid-cols-5">
-        <div class="col-span-1 order-1 bg-red-300 md:order-1">Left</div>
+        <div class="col-span-1 order-1 bg-white md:order-1">
+          <h2>Categories</h2>
+          <div id="categorie-list-container">
+            <button type="button" id="0"
+              class="btn w-full hover:bg-[#15803D] my-1 border-none rounded-sm bg-white hover:text-white">
+              All Trees</button>
+
+            <!-- <button class="btn w-full hover:bg-[#15803D] my-1 border-none rounded-sm bg-white hover:text-white">
+    ${element.category_name}</button> -->
+
+          </div>
+        </div>
         <div class="col-span-1 md:col-span-3 order-2 bg-red-300 md:order-2">
-          <div class="grid grid-cols-1 gap-4 bg-green-500 md:grid-cols-2 lg:grid-cols-3">
-            <div class="card bg-base-100 shadow-sm">
+          <div id="tree-card-container" class="grid grid-cols-1 gap-4 bg-green-500 lg:grid-cols-2 xl:grid-cols-3">
+
+            <!-- <div class="card bg-base-100 shadow-sm col-span-1">
               <figure class="px-4 pt-4">
-                <img src="./assets/about.png" alt="Shoes" class="rounded-xl" />
+                <img src="${element.image}" alt="Shoes" class="aspect-[4/3] object-cover rounded-xl" />
               </figure>
               <div class="card-body p-4">
-                <h2 class="card-title">Card Title</h2>
-                <p class="line-clamp-2">A card component has a figure, a body part, and inside body there are title and
-                  actionre
-                  are title and
-                  actionre are title and actionre are title and actionre are title and actionre are title and actionre
-                  are title
-                  and actionre are title and actionre are title and actions parts</p>
+                <h2 class="card-title">${element.name}</h2>
+                <p class="line-clamp-2">${element.description}</p>
                 <div class="flex justify-between items-center">
-                  <div class="px-3 py-1 bg-[#DCFCE7] text-[#15803D] rounded-3xl">Text</div>
-                  <span>$500</span>
+                  <div class="px-3 py-1 bg-[#DCFCE7] text-[#15803D] rounded-3xl">${element.category}</div>
+                  <span><span>$ </span>${element.price}</span>
                 </div>
                 <div class="card-actions">
                   <button class="btn bg-[#15803D] text-white w-full rounded-full">Add to Cart</button>
                 </div>
               </div>
-            </div>
-            <div class="card bg-base-100 shadow-sm">
-              <figure class="px-4 pt-4">
-                <img src="./assets/about.png" alt="Shoes" class="rounded-xl" />
-              </figure>
-              <div class="card-body p-4">
-                <h2 class="card-title">Card Title</h2>
-                <p class="line-clamp-2">A</p>
-                <div class="flex justify-between items-center">
-                  <div class="px-3 py-1 bg-[#DCFCE7] text-[#15803D] rounded-3xl">Text</div>
-                  <span>$500</span>
-                </div>
-                <div class="card-actions">
-                  <button class="btn bg-[#15803D] text-white w-full rounded-full">Add to Cart</button>
-                </div>
-              </div>
-            </div>
-            <div class="card bg-base-100 shadow-sm">
-              <figure class="px-4 pt-4">
-                <img src="./assets/about.png" alt="Shoes" class="rounded-xl" />
-              </figure>
-              <div class="card-body p-4">
-                <h2 class="card-title">Card Title</h2>
-                <p class="line-clamp-2">A card component has a figure, a body part, and inside body there are title and
-                  actionre
-                  are title and
-                  actionre are title and actionre are title and actionre are title and actionre are title and actionre
-                  are title
-                  and actionre are title and actionre are title and actions parts</p>
-                <div class="flex justify-between items-center">
-                  <div class="px-3 py-1 bg-[#DCFCE7] text-[#15803D] rounded-3xl">Text</div>
-                  <span>$500</span>
-                </div>
-                <div class="card-actions">
-                  <button class="btn bg-[#15803D] text-white w-full rounded-full">Add to Cart</button>
-                </div>
-              </div>
-            </div>
-            <div class="card bg-base-100 shadow-sm">
-              <figure class="px-4 pt-4">
-                <img src="https://i.ibb.co.com/WNbbx3rn/guava-min.jpg" alt="Shoes"
-                  class="aspect-[4/3] object-cover rounded-xl border-2" />
-              </figure>
-              <div class="card-body p-4">
-                <h2 class="card-title">Card Title</h2>
-                <p class="line-clamp-2">A card component has a figure, a body part, and inside body there are title and
-                  actionre
-                </p>
-                <div class="flex justify-between items-center">
-                  <div class="px-3 py-1 bg-[#DCFCE7] text-[#15803D] rounded-3xl">Text</div>
-                  <span>$500</span>
-                </div>
-                <div class="card-actions">
-                  <button class="btn bg-[#15803D] text-white w-full rounded-full">Add to Cart</button>
-                </div>
-              </div>
-            </div>
+            </div> -->
+
           </div>
         </div>
         <div class="col-span-1 order-3 bg-red-300 md:order-3">Right</div>
       </div>
     </section>
-
-
-
-    <div class="card bg-base-100 shadow-sm">
-      <figure class="px-4 pt-4">
-        <img src="./assets/about.png" alt="Shoes" class="rounded-xl" />
-      </figure>
-      <div class="card-body p-4">
-        <h2 class="card-title">Card Title</h2>
-        <p class="line-clamp-2">A card component has a figure, a body part, and inside body there are title and
-          actionre
-          are title and
-          actionre are title and actionre are title and actionre are title and actionre are title and actionre are title
-          and actionre are title and actionre are title and actions parts</p>
-        <div class="flex justify-between items-center">
-          <div class="px-3 py-1 bg-[#DCFCE7] text-[#15803D] rounded-3xl">Text</div>
-          <span>$500</span>
-        </div>
-        <div class="card-actions">
-          <button class="btn bg-[#15803D] text-white w-full rounded-full">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-
   </main>
-
 
 </body>
 
