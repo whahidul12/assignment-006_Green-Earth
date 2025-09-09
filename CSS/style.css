@@ -8,7 +8,11 @@ body {
   background-repeat: no-repeat, no-repeat;
   background-size: contain, contain;
   z-index: 99;
+}
 
+.active {
+  background-color: #15803D;
+  color: #fff;
 }
 
 @media (max-width: 768px) {

@@ -6,23 +6,23 @@
 
 #### 1) What is the difference between var, let, and const?
 
-Ans:
+Ans:var is a function scope, canbe redeclared. let is block scope, can be reassigned. const is block scope cant be redeclared or reassigned.
 
 #### 2) What is the difference between map(), forEach(), and filter()?
 
-Ans:
+Ans:map() transform each element and return new arry. foreach() run a funtion for each elemnt and return undefined. and filter() create a new arry with a condotion.
 
 #### 3) What are arrow functions in ES6?
 
-Ans:
+Ans:arrow functions are a shorter way to write functions in ES6.
 
 #### 4) How does destructuring assignment work in ES6?
 
-Ans:
+Ans:destructuring assignment takes values from array or object into another variable in a syncronous way. exp:const [a, b, c] = [1, 2, 3];
 
 #### 5) Explain template literals in ES6. How are they different from string concatenation?
 
-Ans:
+Ans:template literals use backticks (`) and ${} syntax. it support multi line strings and variable.
 
 ---
 

@@ -1,7 +1,31 @@
-const load_all_tree_cards = async () => {
-  const res = await fetch(`https://openapi.programming-hero.com/api/plants`);
-  const data = await res.json();
-  display_tree_cards(data.plants);
+const load_all_tree_cards = (id) => {
+  manage_spinner(true)
+  fetch(`https://openapi.programming-hero.com/api/plants`)
+    .then(res => res.json())
+    .then(data => {
+      removeActive();
+      const click_categories = document.getElementById(`categorie-name-${id}`);
+      click_categories.classList.add("active");
+      display_tree_cards(data.plants);
+    })
+}
+
+const manage_spinner = (status) => {
+  if (status == true) {
+    document.getElementById("spinner").classList.remove("hidden")
+    document.getElementById("tree-card-panel-container").classList.add("hidden")
+  }
+  else {
+    document.getElementById("tree-card-panel-container").classList.remove("hidden")
+    document.getElementById("spinner").classList.add("hidden")
+  }
+}
+
+const removeActive = () => {
+  const all_categories_name = document.querySelectorAll(".categorie-class-name")
+  all_categories_name.forEach(btn => {
+    btn.classList.remove("active");
+  })
 }
 
 const load_categorie_list = async () => {
@@ -14,17 +38,23 @@ const display_categorie_list = (categories) => {
   categories.forEach(element => {
     const tree_categories_div = document.createElement("div");
     tree_categories_div.innerHTML = `
-    <button type="button" onClick="load_tree_cards(${element.id})" id="${element.id}" class="py-2 px-3 w-[145px] md:w-full cursor-pointer text-sm md:text-base text-center md:text-left border-2 md:border-none border-[#15803D] bg-[#F0FDF4] hover:bg-[#15803D] hover:text-white my-1 rounded-xl">
+    <button type="button" onClick="load_tree_cards(${element.id})" id="categorie-name-${element.id}" class="categorie-class-name py-2 px-3 w-[145px] md:w-full cursor-pointer text-sm md:text-base text-center md:text-left border-2 md:border-none border-[#15803D] bg-[#F0FDF4] hover:bg-[#15803D] hover:text-white my-1 rounded-xl">
     ${element.category_name}</button>
     `
     categorie_list_container.appendChild(tree_categories_div);
   });
 }
 
-const load_tree_cards = async (id) => {
-  const res = await fetch(`https://openapi.programming-hero.com/api/category/${id}`);
-  const data = await res.json();
-  display_tree_cards(data.plants);
+const load_tree_cards = (id) => {
+  manage_spinner(true);
+  fetch(`https://openapi.programming-hero.com/api/category/${id}`)
+    .then(res => res.json())
+    .then(data => {
+      removeActive();
+      const click_categories = document.getElementById(`categorie-name-${id}`);
+      click_categories.classList.add("active");
+      display_tree_cards(data.plants);
+    })
 }
 
 const display_tree_cards = (plants) => {
@@ -55,6 +85,7 @@ const display_tree_cards = (plants) => {
     `
     tree_card_container.appendChild(tree_card_div);
   });
+  manage_spinner(false)
 }
 
 
@@ -172,5 +203,7 @@ const remove_cart_from_array = (cart_id) => {
   }
 }
 
+
+
 load_categorie_list();
-load_all_tree_cards();
+load_all_tree_cards(0);
