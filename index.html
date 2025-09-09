@@ -92,7 +92,7 @@
         </div>
         <!-- ==========TREE CARD CONTAINER========== -->
         <!-- ==========TREE CARD CONTAINER========== -->
-        <div class="col-span-1 md:col-span-6 xl:col-span-8 order-2 bg-blue-300">
+        <div class="col-span-1 md:col-span-6 xl:col-span-8 order-2 ">
           <div id="tree-card-container" class="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
 
             <!-- <div class="card bg-base-100 shadow-sm col-span-1">
@@ -114,7 +114,26 @@
 
           </div>
         </div>
-        <div class="col-span-1 md:col-span-3 xl:col-span-2 order-3 bg-red-300">Right</div>
+        <div class="col-span-1 md:col-span-3 xl:col-span-2 order-3 p-3 bg-white">
+          <h2 class="font-bold">Your Cart</h2>
+          <div>
+            <div id="cart-container">
+              <!-- <div class="flex justify-between items-center py-2 px-3 bg-[#F0FDF4]">
+              <div>
+                <h1 class="text-sm">${tree_detail.name}</h1>
+                <p class="text-base text-[#1F2937]">${tree_detail.price}</p>
+              </div>
+              <button type="button" onclick="this.parentElement.remove()" class="cursor-pointer">
+                <i class="fa-solid fa-xmark text-red-500"></i>
+              </button>
+            </div> -->
+            </div>
+            <div id="total-price-container" class="flex justify-between items-center hidden">
+              <span>Total:</span>
+              <span id="total-price">৳0</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>

@@ -1,11 +1,8 @@
 const load_all_tree_cards = async () => {
   const res = await fetch(`https://openapi.programming-hero.com/api/plants`);
   const data = await res.json();
-  console.log(data.plants);
   display_tree_cards(data.plants);
 }
-
-
 
 const load_categorie_list = async () => {
   const res = await fetch("https://openapi.programming-hero.com/api/categories");
@@ -27,7 +24,6 @@ const display_categorie_list = (categories) => {
 const load_tree_cards = async (id) => {
   const res = await fetch(`https://openapi.programming-hero.com/api/category/${id}`);
   const data = await res.json();
-  console.log(data.plants);
   display_tree_cards(data.plants);
 }
 
@@ -52,7 +48,7 @@ const display_tree_cards = (plants) => {
           <span class="font-semibold text-sm"><span>৳</span>${element.price}</span>
         </div>
         <div class="card-actions">
-          <button class="btn bg-[#15803D] text-white w-full rounded-full">Add to Cart</button>
+          <button onClick="add_to_cart(${element.id})" class="btn bg-[#15803D] text-white w-full rounded-full">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -71,7 +67,6 @@ const plants_detail = async (id) => {
 const load_tree_detail = (detail) => {
   const tree_detail_container = document.getElementById("tree-detail-container")
   tree_detail_container.innerHTML = "";
-
   const div = document.createElement("div");
   div.innerHTML = `
       <div class="card bg-base-100">
@@ -95,10 +90,87 @@ const load_tree_detail = (detail) => {
         </form>
       </div>
   `
-
   tree_detail_container.appendChild(div);
   document.getElementById("tree_modal").showModal();
 }
 
+const add_to_cart = async (id) => {
+  const res = await fetch(`https://openapi.programming-hero.com/api/plant/${id}`);
+  const data = await res.json();
+  display_add_to_cart(data.plants);
+}
+
+const cart = [];
+const cart_occurrence = [];
+const cart_items = {};
+
+const update_total_price = () => {
+  let total = 0;
+
+  Object.keys(cart_items).forEach(cart_id => {
+    const item = cart_items[cart_id];
+    const quantity = cart_occurrence.filter(id => id == cart_id).length;
+    total += item.price * quantity;
+  });
+
+  document.getElementById("total-price").innerText = `৳${total}`;
+}
+
+const display_add_to_cart = (tree_detail) => {
+  const cart_id = tree_detail.id;
+  cart_occurrence.push(cart_id);
+  const cart_occurrence_numbers = cart_occurrence.filter(e => e === cart_id).length;
+
+  cart_items[cart_id] = {
+    name: tree_detail.name,
+    price: tree_detail.price
+  };
+
+  if (!cart.includes(cart_id)) {
+    const cart_container = document.getElementById("cart-container");
+    const div = document.createElement("div");
+    div.innerHTML = `
+            <div class="flex justify-between items-center my-2 py-2 px-3 bg-[#F0FDF4]">
+            <div>
+            <h1 class="text-sm">${tree_detail.name}</h1>
+            <p class="text-base text-[#1F2937]"> <span id="price-tag-${cart_id}">${tree_detail.price}</span> x <span id="cart-tree-number-${cart_id}">${cart_occurrence_numbers}</span></p>
+            </div>
+            <button type="button" onclick="this.parentElement.remove();remove_cart_from_array(${cart_id})" class="cursor-pointer">
+            <i class="fa-solid fa-xmark text-red-500"></i>
+              </button>
+              </div>
+              `
+    cart_container.appendChild(div)
+    cart.push(cart_id);
+  }
+
+  document.getElementById(`cart-tree-number-${cart_id}`).innerText = cart_occurrence_numbers;
+  document.getElementById("total-price-container").classList.remove("hidden");
+
+  update_total_price();
+}
+
+const remove_cart_from_array = (cart_id) => {
+  const cart_index = cart.indexOf(cart_id);
+  if (cart_index !== -1) {
+    cart.splice(cart_index, 1);
+  }
+  for (let i = cart_occurrence.length - 1; i >= 0; i--) {
+    if (cart_occurrence[i] === cart_id) {
+      cart_occurrence.splice(i, 1)
+    }
+  }
+
+  if (!cart_occurrence.includes(cart_id)) {
+    delete cart_items[cart_id];
+  }
+
+  if (cart.length === 0) {
+    document.getElementById("total-price-container").classList.add("hidden");
+  } else {
+    update_total_price();
+  }
+}
+
 load_categorie_list();
-// load_all_tree_cards();
+load_all_tree_cards();
