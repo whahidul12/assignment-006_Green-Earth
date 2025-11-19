@@ -1,181 +1,131 @@
-## Privet Repository Access Issue Proof
+# Green Earth 🌱
 
-![Privet Repository Access Issue Proof](./assets/private_reposotory.png "Privet Repository Access Issue Proof")
-
-#### Create a README file to answer the following question-
-
-#### 1) What is the difference between var, let, and const?
-
-Ans:var is a function scope, canbe redeclared. let is block scope, can be reassigned. const is block scope cant be redeclared or reassigned.
-
-#### 2) What is the difference between map(), forEach(), and filter()?
-
-Ans:map() transform each element and return new arry. foreach() run a funtion for each elemnt and return undefined. and filter() create a new arry with a condotion.
-
-#### 3) What are arrow functions in ES6?
-
-Ans:arrow functions are a shorter way to write functions in ES6.
-
-#### 4) How does destructuring assignment work in ES6?
-
-Ans:destructuring assignment takes values from array or object into another variable in a syncronous way. exp:const [a, b, c] = [1, 2, 3];
-
-#### 5) Explain template literals in ES6. How are they different from string concatenation?
-
-Ans:template literals use backticks (`) and ${} syntax. it support multi line strings and variable.
+Green Earth is a web-based environmental awareness platform aiming to educate users about climate change, sustainability, and eco-friendly living. The project emphasizes informative content, interactive resources, and community engagement.
 
 ---
 
-## WELCOME TO ( সহজ সরল সিম্পল ) ASSIGNMENT-006
-
-### 📅 Deadline For 60 marks: 9th September, 2025 (11:59 pm ⏱️)
-
-### 📅 Deadline For 50 marks : 13th September , 2025 (6:00 pm⏱️)
-
-### 📅 Deadline For 30 marks: Any time after 13the September , 2025 (6:01 pm⏱️).
+## 🚀 Live Demo
+Live Site: `https://green-earth-ph-hero.netlify.app/`
 
 ---
 
-# Green Earth
+## ✨ Features
 
-## Private Repository: https://classroom.github.com/a/nVZrg5R9
-
-## Alternative Private Repository: https://classroom.github.com/a/KCGI14ST
-
-## Alternative Private Repository: https://classroom.github.com/a/JMuIYqgK
+- 🌍 Info pages about climate change, sustainability, and environmental issues  
+- 📊 Interactive statistics and charts  
+- 🧭 Resources section (guides, articles, external links)  
+- 📝 Quiz / knowledge test to educate users  
+- 🔗 Links to eco-friendly tools and organizations  
+- 📱 Responsive design for mobile and desktop  
 
 ---
 
-## 🌴 API Endpoints
+## 🛠️ Tech Stack
 
-1. Get 🌴All Plants
+- Frontend: HTML5, CSS3, JavaScript  
+- Library / Framework: (If used) React.js or Vanilla JS  
+- Charts & Data: Chart.js or D3.js (if applicable)  
+- Hosting: GitHub Pages / Netlify / Vercel (optional)  
 
-```bash
-https://openapi.programming-hero.com/api/plants
-```
+---
 
-2. Get 🌴All categories <br/>
+## 📦 Installation & Setup
 
-```bash
-https://openapi.programming-hero.com/api/categories
-```
+Follow these steps to run Green Earth locally:
 
-3. Get 🌴plants by categories <br/>
+---
 
-```bash
-https://openapi.programming-hero.com/api/category/${id}
-```
+### 1. Clone the Repository
 
 ```bash
-https://openapi.programming-hero.com/api/category/1
-```
-
-4. Get 🌴Plants Detail <br/>
-
-```bash
-https://openapi.programming-hero.com/api/plant/${id}
-```
-
-```bash
-https://openapi.programming-hero.com/api/plant/1
+git clone https://github.com/whahidul12/assignment-006_Green-Earth.git
+cd assignment-006_Green-Earth
 ```
 
 ---
 
-## ✅ Main Requirements
+### 2. Install Dependencies
 
-#### 1) Navbar
+If the project uses Node / npm:
 
--   Website **logo/name** on the **left**
--   **Menu items** in the **center**
--   **Plant a Tree button** on the **right**
+```bash
+npm install
+```
 
-#### 2) Banner
-
--   A **background image**
--   A **title** and **subtitle**
--   A **centered button**
-
-#### 3) About Campaign
-
--   **Section heading**
--   **Image on the left**, **text on the right**
-
-#### 4) Our Impact Section
-
--   Show **3 cards** with campaign **statistics**
-
-#### 5) Plant a Tree Today Section & Footer
-
--   **Form**: Name, Email, Number of Trees
--   **Footer** with copyright info
-
-#### 6) Responsiveness
-
--   Website must be **mobile responsive**
-
-## ⚙️ Functionalities
-
-1. Category Loading
-   Load Tree Categories dynamically on the left side.
-
-2. Category Click → Tree Data
-   On clicking a category: load trees of that category.
-
-Display in a 3-column card layout.
-
-3.  Card Contents
-    Each card includes:
-
-           - Image
-
-           -  Name
-
-           - Short description
-
-           - Category
-
-           - Price
-
-           - Add to Cart button
-
-4.  Modal on Card Click
-    Clicking a tree name on a card opens a modal with full tree details.
-
-## 🧪 Challenges
-
-    1) Add to Cart
-    Clicking Add to Cart: - Adds the tree to Cart List
-                          - Shows tree name
-
-    2) Total Calculation
-    Calculate total price of trees in cart.
-
-    3) Remove from Cart
-    Clicking ❌ removes tree and deducts price from total.
-
-    4) Loading Spinner
-    Show spinner while data is loading.
-
-    5) Active Button State
-    Highlight active category button when selected.
-
-🧰 Technology Stack:
-
-        HTML
-
-        CSS (Vanilla / Tailwind / DaisyUI)
-
-        JavaScript (Vanilla only, no frameworks)
-
-📌 Rules
-✅ At least 5 meaningful commits
-
-❌ No dummy text or Lorem Ipsum — must use relevant content
-
-## 🔗 Submission
-
--   **Live Link :** YOUR_DEPLOYED_URL_HERE
--   **GitHub Private Repository:** YOUR_REPO_URL_HERE
+If it's a static site (pure HTML/JS/CSS), you can skip this.
 
 ---
+
+### 3. Serve Locally
+
+If you have a static site, you can open `index.html` in your browser to run.
+
+If it's a Node-based project, run:
+
+```bash
+npm run dev
+```
+
+Or:
+
+```bash
+npm start
+```
+
+---
+
+## 📁 Project Structure
+
+```
+assignment-006_Green-Earth/
+│
+├── index.html  
+├── styles.css  
+├── script.js  
+├── assets/        # Images, icons, etc.
+├── data/          # JSON or data files for charts or content
+└── README.md  
+```
+
+---
+
+## 📚 What I Learned
+
+- Creating educational web content  
+- Building interactive charts  
+- Designing mobile-friendly and accessible UI  
+- Structuring static websites  
+- Using JavaScript for DOM manipulation  
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository  
+2. Create a branch: `git checkout -b feature-name`  
+3. Make your changes  
+4. Commit: `git commit -m "Add new content / feature"`  
+5. Push: `git push origin feature-name`  
+6. Open a Pull Request  
+
+---
+
+## 👤 Author
+
+**Whahidul Islam**  
+📧 Email: `whahid.cnits@email.com`  
+🌐 GitHub: https://github.com/whahidul12  
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+Thank you for checking out **Green Earth**! 🌍  
+Feel free to contribute and expand the environmental resources.
+::contentReference[oaicite:0]{index=0}
